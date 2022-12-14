@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
+type ButtonProps = {
+    text: string
+}
+
 const StyledButton = styled.button`
-    margin: 0;
+    margin-bottom: 2rem;
     padding: .5rem;
     color: #fff;
     background: #5A189A;
@@ -17,10 +21,10 @@ const StyledButton = styled.button`
 `;
 
 
-const Button = () => {
+const Button:React.FC<ButtonProps> = ({ text }) => {
     return(
         <StyledButton>
-            I am Button
+            { text }
         </StyledButton>
     );
 }

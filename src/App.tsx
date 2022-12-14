@@ -1,15 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import Button from './components/Button/Button';
+import 'normalize.css';
+import './App.css';
+import Container from './components/styled/Container';
+import StartPage from './pages/StartPage';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
 
   return (
-    <div className="App">
-        <Button />
-    </div>
+    <Container>
+      <StartPage/>
+    </Container>
   )
 }
 
