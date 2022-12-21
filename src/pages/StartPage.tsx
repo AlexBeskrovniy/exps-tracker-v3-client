@@ -1,21 +1,33 @@
-import Container from "../components/styled/Container";
-import Button from "../components/styled/Button";
-import ImageWrapper from "../components/styled/ImageWrapper";
-import Heading from "../components/styled/Heading";
+import { Link } from "react-router-dom";
+
+import {Container, Flex } from "../components/styled/Layout.styled";
+import Button from "../components/styled/Button.styled";
+import ImageWrapper from "../components/styled/ImageWrapper.styled";
+import { Heading } from "../components/styled/Text.styled";
 import coinsImage from "../assets/coins.png";
 
 const StartPage = () => {
     return(
-        <div className="flex-column-between">
-            <div className="flex-center-wrapper">
-                <ImageWrapper image={coinsImage} />
-            </div>
-            <Heading text={"Welcome to the Exps-Tracker App. Save and control your money."}/>
-            <div className="flex-column">
-                <Button text={"Get Started"} />
-                <Button text={"Sign In"} />
-            </div>
-        </div>
+        <Container>
+            <Flex height="100vh" direction="column" justify="space-between" align="center">
+                <Flex>
+                    <ImageWrapper>
+                        <img src={coinsImage} alt="Coins" />
+                    </ImageWrapper>
+                </Flex>
+                <Heading>
+                    Welcome to the Exps-Tracker App. Save and control your money.
+                </Heading>
+                <Flex width="100%" direction="column" justify="space-between" align="center">
+                    <Link to="/signup">
+                        <Button>Get Started</Button>
+                    </Link>
+                    <Link to="/signin">
+                        <Button>Sign In</Button>
+                    </Link>
+                </Flex>
+            </Flex>
+        </Container>
     );
 }
 
