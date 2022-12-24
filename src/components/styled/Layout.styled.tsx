@@ -24,3 +24,44 @@ export const Flex = styled.div<FlexProps>`
     justify-content: ${({ justify }) => justify || 'center'};
     align-items: ${({ align }) => align || 'center'};
 `
+
+export const DrawerWrapper = styled.div`
+    transform: translateX(-100%);
+    width: 90vw;
+    height: 100vh;
+    z-index: 3;
+    background: var(--bg-drawer);
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+
+    &[open] {
+        animation: slideOut;
+    }
+
+    &[close] {
+        animation: slideIn;
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(-100%);
+        }
+
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-100%);
+        }
+    }
+`

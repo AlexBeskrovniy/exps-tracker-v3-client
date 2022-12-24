@@ -4,7 +4,7 @@ const GlobalStyles = createGlobalStyle`
     :root {
         --bg-neon:#10002B;
         --bg-lighter-neon: #240046;
-        --3: #3C096C;
+        --bg-drawer: #3C096C;
         --button-neon: #5A189A;
         --5: #7B2CBF;
         --6: #9D4EDD;

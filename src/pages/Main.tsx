@@ -1,8 +1,15 @@
-import Header from "../components/Header"
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Drawer from "../components/Drawer";
 
 const Main = () => {
     return(
-        <Header />
+        <>
+            <Header />
+            <Drawer />
+                
+            <Footer />
+        </>
     );
 };
 
