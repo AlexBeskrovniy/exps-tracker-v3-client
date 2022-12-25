@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
         --5: #7B2CBF;
         --6: #9D4EDD;
         --border-neon: #C77DFF;
-        --8: #E0AAFF;
+        --link-color: #E0AAFF;
         --color-white: #fff;
     }
     
@@ -40,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
         outline: none;
         text-decoration: none;
         text-align: center;
-        color: #E0AAFF;
+        color: var(--link-color);
         font-size: 1.2rem;
     }
 

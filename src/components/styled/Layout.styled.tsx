@@ -9,6 +9,10 @@ interface FlexProps {
     align?: string
 }
 
+interface DrawerProps {
+    open: 'init' | 'open' | 'closed'
+}
+
 export const Container = styled.div`
     height: 100%;
     max-width: min(1400px, 90vw);
@@ -25,7 +29,7 @@ export const Flex = styled.div<FlexProps>`
     align-items: ${({ align }) => align || 'center'};
 `
 
-export const DrawerWrapper = styled.div`
+export const DrawerWrapper = styled.div<DrawerProps>`
     transform: translateX(-100%);
     width: 90vw;
     height: 100vh;
@@ -34,16 +38,18 @@ export const DrawerWrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+    animation: ${({ open }) => {
+        switch(open) {
+            case 'init':
+                return 'none';
+            case 'open':
+                return 'slideOut';
+            case 'closed':
+                return 'slideIn';
+        }
+    }};
     animation-duration: 500ms;
     animation-fill-mode: both;
-
-    &[open] {
-        animation: slideOut;
-    }
-
-    &[close] {
-        animation: slideIn;
-    }
 
     @keyframes slideOut {
         from {
@@ -64,4 +70,17 @@ export const DrawerWrapper = styled.div`
             transform: translateX(-100%);
         }
     }
+`
+
+export const NavLinkWrapper = styled.span`
+    width: 100%;
+    padding-block: 1rem;
+    border-top: 2px solid var(--border-neon);
+    &:last-child {
+        border-bottom: 2px solid var(--border-neon);
+    }
+    > a {
+        display: flex;
+        font-size: 1.5rem;
+    } 
 `

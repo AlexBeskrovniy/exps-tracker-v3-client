@@ -1,17 +1,24 @@
 import { DrawerWrapper, Flex } from "./styled/Layout.styled";
-import ImageWrapper from "./styled/ImageWrapper.styled";
+import CloseButton from "./CloseButton";
+import { Backdrop } from "./styled/Backdrop.styled";
 
-const Drawer = () => {
+interface DrawerProps {
+    open: 'init' | 'open' | 'closed'
+    closeDrawer: () => void
+    children: React.ReactNode
+}
+
+const Drawer = (props: DrawerProps) => {
     return(
-        <DrawerWrapper>
+        <>
+        <Backdrop open={props.open} onClick={props.closeDrawer}/>
+        <DrawerWrapper open={props.open} >
             <Flex padding=".5rem" justify="flex-end">
-            <ImageWrapper size="2rem">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                    <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
-                </svg>
-            </ImageWrapper>
+                <CloseButton onClick={props.closeDrawer} />
             </Flex>
+            {props.children}
         </DrawerWrapper>
+        </>
     );
 }
 

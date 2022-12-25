@@ -1,16 +1,15 @@
+import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Drawer from "../components/Drawer";
 
-const Main = () => {
+const MasterPage = () => {
     return(
         <>
             <Header />
-            <Drawer />
-                
+                <Outlet />
             <Footer />
         </>
     );
 };
 
-export default Main;
+export default MasterPage;
