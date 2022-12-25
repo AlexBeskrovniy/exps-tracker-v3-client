@@ -16,6 +16,7 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
         fill: var(--border-color);
         width: ${({ size }) => size || 'max(200px, 30vw)'};
         height: ${({ size }) => size || 'auto'};
+        cursor: pointer;
     }
 `
 
