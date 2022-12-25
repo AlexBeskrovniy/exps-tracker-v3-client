@@ -1,15 +1,28 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyles = createGlobalStyle`
+interface ThemeContext {
+    theme:{
+        colors: {
+            bg: string
+            bgLighter: string
+            bgDrawer: string
+            buttonColor: string
+            borderColor: string
+            linkColor: string
+        }
+    }
+}
+
+const GlobalStyles = createGlobalStyle<ThemeContext>`
     :root {
-        --bg-neon:#10002B;
-        --bg-lighter-neon: #240046;
-        --bg-drawer: #3C096C;
-        --button-neon: #5A189A;
+        --bg: ${({ theme }) => theme.colors.bg};
+        --bg-lighter: ${({ theme }) => theme.colors.bgLighter};
+        --bg-drawer: ${({ theme }) => theme.colors.bgDrawer};
+        --button-color: ${({ theme }) => theme.colors.buttonColor};
         --5: #7B2CBF;
         --6: #9D4EDD;
-        --border-neon: #C77DFF;
-        --link-color: #E0AAFF;
+        --border-color: ${({ theme }) => theme.colors.borderColor};
+        --link-color: ${({ theme }) => theme.colors.linkColor};
         --color-white: #fff;
     }
     
@@ -27,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
     
     body {
         font-family: 'Ubuntu Condensed', sans-serif;
-        background: var(--bg-neon);
+        background: var(--bg);
         min-height: 100vh;
     }
     
@@ -59,10 +72,11 @@ const GlobalStyles = createGlobalStyle`
         border:none;
     }
 
+    //autofill background hack
     input:-webkit-autofill,
     textarea:-webkit-autofill,
     select:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 1000px var(--bg-neon) inset !important;
+        -webkit-box-shadow: 0 0 0 1000px var(--bg) inset !important;
         -webkit-text-fill-color: white !important;
     }
 `

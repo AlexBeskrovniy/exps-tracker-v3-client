@@ -75,9 +75,9 @@ export const DrawerWrapper = styled.div<DrawerProps>`
 export const NavLinkWrapper = styled.span`
     width: 100%;
     padding-block: 1rem;
-    border-top: 2px solid var(--border-neon);
+    border-top: 2px solid var(--border-color);
     &:last-child {
-        border-bottom: 2px solid var(--border-neon);
+        border-bottom: 2px solid var(--border-color);
     }
     > a {
         display: flex;
