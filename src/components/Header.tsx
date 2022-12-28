@@ -5,6 +5,7 @@ import { Container, Flex } from "./styled/Layout.styled";
 import { StyledHeader } from "./styled/Details.styled";
 import ImageWrapper from "./styled/ImageWrapper.styled";
 import Drawer from "./Drawer";
+import Modal from "./Modal";
 import Nav from "./Nav";
 
 type DrawerState = 'init' | 'open' | 'closed';
@@ -22,6 +23,7 @@ const Header = () => {
             <Drawer open={open} closeDrawer={closeDrawer}>
                 <Nav closeDrawer={closeDrawer} />
             </Drawer>
+            {/* <Modal /> */}
             <Container>
                 <Flex justify="space-between" align="center">
                     <div onClick={openDrawer}>
@@ -34,6 +36,7 @@ const Header = () => {
                     <select
                         defaultValue={ themes.find(theme => theme === userTheme) } 
                         onChange={ (e) => changeTheme(e.target.value) }
+                        hidden
                     >
                         {themes.map(theme => (
                             <option key={theme} value={theme}>{theme.toUpperCase()}</option>

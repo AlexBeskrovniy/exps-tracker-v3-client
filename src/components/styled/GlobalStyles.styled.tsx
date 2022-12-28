@@ -40,6 +40,7 @@ const GlobalStyles = createGlobalStyle<ThemeContext>`
     
     body {
         font-family: 'Ubuntu Condensed', sans-serif;
+        color: var(--color-white); //TEMP
         background: var(--bg);
         min-height: 100vh;
     }

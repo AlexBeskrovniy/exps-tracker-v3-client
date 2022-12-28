@@ -1,13 +1,18 @@
 {
   "name": "exps-tracker-v3-client",
   "private": true,
-  "version": "0.0.0",
+  "version": "3.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexBlacksmith/exps-tracker-v3-client.git"
+  },
+  "author": "Alexandr Beskrovniy",
   "dependencies": {
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",

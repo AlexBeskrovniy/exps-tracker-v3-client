@@ -7,6 +7,7 @@ interface FlexProps {
     direction?: string
     justify?: string
     align?: string
+    gap?: string
 }
 
 interface DrawerProps {
@@ -27,6 +28,7 @@ export const Flex = styled.div<FlexProps>`
     flex-direction: ${({ direction }) => direction || 'row'};
     justify-content: ${({ justify }) => justify || 'center'};
     align-items: ${({ align }) => align || 'center'};
+    gap: ${({ gap }) => gap || 0 };
 `
 
 export const DrawerWrapper = styled.div<DrawerProps>`
@@ -70,6 +72,19 @@ export const DrawerWrapper = styled.div<DrawerProps>`
             transform: translateX(-100%);
         }
     }
+`
+
+export const ModalWrapper = styled.div`
+    position: absolute;
+    width: min(350px, 90vw);
+    height: 60vh;
+    top: 20%;
+    left:50%;
+    transform: translateX(-50%);
+    background: var(--bg-drawer);
+    border: 2px solid var(--border-color);
+    border-radius: 1rem;
+    z-index: 3;
 `
 
 export const NavLinkWrapper = styled.span`

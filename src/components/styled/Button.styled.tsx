@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-const Button = styled.span`
-    width: 100%;
+interface ButtonProps {
+    width?: string
+    marginBottom?: string
+}
+
+const Button = styled.span<ButtonProps>`
+    width: ${({ width }) => width || '100%'};
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: ${({ marginBottom }) => marginBottom || '2rem' };;
     padding: .5rem;
     color: var(--color-white);
     background: var(--button-color);
