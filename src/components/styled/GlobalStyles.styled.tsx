@@ -66,7 +66,7 @@ const GlobalStyles = createGlobalStyle<ThemeContext>`
         font-family: 'Oswald', sans-serif;
     }
 
-    input {
+    input, textarea, select {
         font-family: 'Ubuntu Condensed', sans-serif;
         background: transparent;
         outline: none;

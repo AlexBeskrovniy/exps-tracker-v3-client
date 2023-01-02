@@ -76,13 +76,14 @@ export const DrawerWrapper = styled.div<ModalProps>`
 
 export const ModalWrapper = styled.div<ModalProps>`
     position: absolute;
+    padding: .5rem;
     width: min(350px, 90vw);
     height: 60vh;
     top: 20%;
     left:50%;
     transform: translateX(-50%);
     transform: translateY(-150%);
-    background: var(--bg-drawer);
+    background: var(--bg);
     border: 2px solid var(--border-color);
     border-radius: 1rem;
     z-index: 3;
