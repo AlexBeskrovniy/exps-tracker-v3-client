@@ -4,17 +4,17 @@ import { Backdrop } from "./styled/Backdrop.styled";
 
 interface ModalProps {
     open: 'init' | 'open' | 'closed'
-    closeDrawer: () => void
+    closeModal: () => void
     children: React.ReactNode
 }
 
 const Modal = (props: ModalProps) => {
     return(
         <>
-            <Backdrop open={props.open} onClick={props.closeDrawer}/>
-            <ModalWrapper >
+            <Backdrop open={props.open} onClick={props.closeModal}/>
+            <ModalWrapper open={props.open}>
                 <Flex padding=".5rem" justify="flex-end">
-                    <CloseButton onClick={props.closeDrawer} />
+                    <CloseButton onClick={props.closeModal} />
                 </Flex>
                 {props.children}
             </ModalWrapper>

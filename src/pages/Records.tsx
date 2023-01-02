@@ -1,9 +1,13 @@
+import { useOutletContext } from "react-router-dom";
+
 import { Flex } from "../components/styled/Layout.styled";
 import { PageHeading, CardHeading, DateText, Text } from "../components/styled/Text.styled";
 import { CardWrapper } from "../components/styled/Details.styled";
 import Button from "../components/styled/Button.styled";
 
 const Records = () => {
+    const openModal: () => void = useOutletContext();
+
     return(
         <>
            <PageHeading>Records History</PageHeading>
@@ -18,7 +22,7 @@ const Records = () => {
                         <CardHeading>16.340.045</CardHeading>
                     </Flex>
                         <Text>Description</Text>
-                    <Button width="95%" marginBottom="1rem">Edit</Button>
+                    <Button width="95%" marginBottom="1rem" onClick={openModal}>Edit</Button>
                 </Flex>
             </CardWrapper> 
         </>
