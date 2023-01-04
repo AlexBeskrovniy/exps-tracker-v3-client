@@ -5,12 +5,12 @@ import { Container } from "../components/styled/Layout.styled";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Modal from "../components/Modal";
-import RecordForm from '../components/RecordForm';
 
 type ModalState = 'init' | 'open' | 'closed';
 
 const MasterPage = () => {
     const [open, setOpen] = useState<ModalState>('init');
+    const [content, setContent] = useState(<></>);
 
     const openModal = () => setOpen('open');
     const closeModal = () => setOpen('closed');
@@ -19,9 +19,9 @@ const MasterPage = () => {
         <>
             <Header />
                 <Container>
-                    <Outlet context={openModal} />
+                    <Outlet context={{ openModal, setContent }} />
                 </Container>
-                <Modal open={ open } closeModal={ closeModal } children={ <RecordForm /> } />
+                <Modal open={ open } closeModal={ closeModal } children={ content } />
             <Footer />
         </>
     );

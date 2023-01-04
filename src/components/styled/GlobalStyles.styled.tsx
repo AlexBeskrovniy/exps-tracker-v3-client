@@ -80,6 +80,9 @@ const GlobalStyles = createGlobalStyle<ThemeContext>`
         -webkit-box-shadow: 0 0 0 1000px var(--bg) inset !important;
         -webkit-text-fill-color: white !important;
     }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
 `
 
 export default GlobalStyles;

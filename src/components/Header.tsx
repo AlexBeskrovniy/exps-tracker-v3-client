@@ -46,7 +46,7 @@ const Header = () => {
                     <select
                         defaultValue={ themes.find(theme => theme === userTheme) } 
                         onChange={ (e) => changeTheme(e.target.value) }
-                        // hidden
+                        hidden
                     >
                         {themes.map(theme => (
                             <option key={theme} value={theme}>{theme.toUpperCase()}</option>

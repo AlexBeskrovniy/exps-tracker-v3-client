@@ -4,9 +4,20 @@ import { Flex } from "../components/styled/Layout.styled";
 import { PageHeading, CardHeading, DateText, Text } from "../components/styled/Text.styled";
 import { CardWrapper } from "../components/styled/Details.styled";
 import Button from "../components/styled/Button.styled";
+import RecordForm from "../components/RecordForm";
+
+interface Modal {
+    openModal: () => void
+    setContent: (content: JSX.Element) => void
+}
 
 const Records = () => {
-    const openModal: () => void = useOutletContext();
+    const {openModal, setContent}: Modal = useOutletContext();
+
+    const useModal = () => {
+        setContent(<RecordForm />);
+        openModal();
+    }
 
     return(
         <>
@@ -22,7 +33,7 @@ const Records = () => {
                         <CardHeading>16.340.045</CardHeading>
                     </Flex>
                         <Text>Description</Text>
-                    <Button width="95%" marginBottom="1rem" onClick={openModal}>Edit</Button>
+                    <Button width="95%" marginBottom="1rem" onClick={useModal}>Edit</Button>
                 </Flex>
             </CardWrapper> 
         </>
