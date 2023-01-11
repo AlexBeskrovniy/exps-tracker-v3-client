@@ -7,17 +7,11 @@ import Button from "../components/styled/Button.styled";
 import CategoryForm from "../components/CategoryForm";
 
 interface Modal {
-    openModal: () => void
-    setContent: (content: JSX.Element) => void
+    useModal: (content: JSX.Element) => void
 }
 
 const Categories = () => {
-    const {openModal, setContent}: Modal = useOutletContext();
-
-    const useModal = () => {
-        setContent(<CategoryForm />);
-        openModal();
-    }
+    const { useModal }: Modal = useOutletContext();
 
     return(
         <>
@@ -34,7 +28,7 @@ const Categories = () => {
                 <Flex direction="column" gap=".5rem">
                     <CardHeading>Name</CardHeading>
                     <Text>Description</Text>
-                    <Button width="95%" marginBottom="1rem" onClick={useModal}>Edit</Button>
+                    <Button width="95%" marginBottom="1rem" onClick={() => useModal(<CategoryForm />)}>Edit</Button>
                 </Flex>
             </CardWrapper>
         </>

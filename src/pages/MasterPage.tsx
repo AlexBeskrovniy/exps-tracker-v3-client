@@ -15,11 +15,16 @@ const MasterPage = () => {
     const openModal = () => setOpen('open');
     const closeModal = () => setOpen('closed');
 
+    const useModal = (content: JSX.Element) => {
+        setContent(content);
+        openModal();
+    }
+
     return(
         <>
             <Header />
                 <Container>
-                    <Outlet context={{ openModal, setContent }} />
+                    <Outlet context={{ useModal }} />
                 </Container>
                 <Modal open={ open } closeModal={ closeModal } children={ content } />
             <Footer />

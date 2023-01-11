@@ -7,17 +7,11 @@ import Button from "../components/styled/Button.styled";
 import RecordForm from "../components/RecordForm";
 
 interface Modal {
-    openModal: () => void
-    setContent: (content: JSX.Element) => void
+    useModal: (content: JSX.Element) => void
 }
 
 const Records = () => {
-    const {openModal, setContent}: Modal = useOutletContext();
-
-    const useModal = () => {
-        setContent(<RecordForm />);
-        openModal();
-    }
+    const { useModal }: Modal = useOutletContext();
 
     return(
         <>
@@ -33,7 +27,7 @@ const Records = () => {
                         <CardHeading>16.340.045</CardHeading>
                     </Flex>
                         <Text>Description</Text>
-                    <Button width="95%" marginBottom="1rem" onClick={useModal}>Edit</Button>
+                    <Button width="95%" marginBottom="1rem" onClick={() => useModal(<RecordForm />)}>Edit</Button>
                 </Flex>
             </CardWrapper> 
         </>
