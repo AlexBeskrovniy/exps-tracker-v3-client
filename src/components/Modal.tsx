@@ -1,4 +1,5 @@
-import { ModalWrapper, Flex } from "./styled/Layout.styled";
+import { ModalWrapper } from "./styled/Details.styled";
+import { Flex } from "./styled/Layout.styled";
 import CloseButton from "./CloseButton";
 import { Backdrop } from "./styled/Backdrop.styled";
 

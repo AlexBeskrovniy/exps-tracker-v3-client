@@ -1,4 +1,5 @@
-import { DrawerWrapper, Flex } from "./styled/Layout.styled";
+import { DrawerWrapper } from "./styled/Details.styled";
+import { Flex } from "./styled/Layout.styled";
 import CloseButton from "./CloseButton";
 import { Backdrop } from "./styled/Backdrop.styled";
 
