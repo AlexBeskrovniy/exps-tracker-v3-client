@@ -7,9 +7,11 @@ import { Form, Input } from "../components/styled/Form.styled";
 import { gql, useMutation } from '@apollo/client';
 
 const ADD_USER = gql`
-  mutation AddUser($name: String!, $email: String!, $password: String!, $confirmPassword: String!) {
-    register(name: $name, email: $email, password: $password, confirmPassword: $confirmPassword) {
-      id
+  mutation register($input: RegisterUserInput) {
+    register(input: $input) {
+        id
+        name
+        token
     }
   }
 `;
@@ -30,10 +32,12 @@ const SignUp = () => {
                             const formData = new FormData(e.target)
                             const { username, email, password, confirm } = Object.fromEntries(formData);
                             addUser({ variables: {
-                                name: username,
-                                email: email,
-                                password: password,
-                                confirmPassword: confirm
+                                input: {
+                                    name: username,
+                                    email: email,
+                                    password: password,
+                                    confirmPassword: confirm
+                                }
                             } });
                         } }>
                         <Flex width="100%" direction="column" justify="space-between" align="center">
