@@ -11,6 +11,7 @@ const ADD_USER = gql`
     register(input: $input) {
         id
         name
+        email
         token
     }
   }
@@ -20,7 +21,10 @@ const SignUp = () => {
     const [addUser, { data, loading, error }] = useMutation(ADD_USER);
     if (loading) console.log('Submitting...');
     if (error) console.log(`Submission error! ${error.message}`);
-    if(data) console.log(data);
+    if(data) {
+        console.log(data);
+        data.register.token && localStorage.setItem('authToken', data.register.token);
+    }
     return(
         <Container>
             <Flex height="100vh" direction="column" justify="space-between" align="center">
