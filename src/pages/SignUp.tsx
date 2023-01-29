@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import { useAuthContext } from "../providers/AuthProvider";
 import { Container, Flex } from "../components/styled/Layout.styled";
 import { Heading, Text } from "../components/styled/Text.styled";
 import { Form, Input } from "../components/styled/Form.styled";
@@ -18,13 +19,12 @@ const ADD_USER = gql`
 `;
 
 const SignUp = () => {
+    const { onLogIn }: any = useAuthContext();
+
     const [addUser, { data, loading, error }] = useMutation(ADD_USER);
     if (loading) console.log('Submitting...');
     if (error) console.log(`Submission error! ${error.message}`);
-    if(data) {
-        console.log(data);
-        data.register.token && localStorage.setItem('authToken', data.register.token);
-    }
+    if (data) onLogIn(data.register, data.register.token);
     return(
         <Container>
             <Flex height="100vh" direction="column" justify="space-between" align="center">

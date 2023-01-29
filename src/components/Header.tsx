@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { ThemeContext } from 'styled-components'
+import { useAuthContext } from "../providers/AuthProvider";
 
 import { Container, Flex } from "./styled/Layout.styled";
 import { StyledHeader } from "./styled/Details.styled";
@@ -11,6 +12,7 @@ import AccountNav from "./AccountNav";
 type DrawerState = 'init' | 'open' | 'closed';
 
 const Header = () => {
+    const { user }: any = useAuthContext();
     const [open, setOpen] = useState<DrawerState>('init');
     const [content, setContent] = useState(<></>);
 
@@ -38,6 +40,7 @@ const Header = () => {
                             </svg>
                         </ImageWrapper>
                     </div>
+                    {user && user.name}
                     <select
                         defaultValue={ themes.find(theme => theme === userTheme) } 
                         onChange={ (e) => changeTheme(e.target.value) }

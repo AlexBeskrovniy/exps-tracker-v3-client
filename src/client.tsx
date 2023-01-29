@@ -13,7 +13,7 @@ const token = localStorage.getItem('authToken');
 return {
     headers: {
     ...headers,
-    authorization: token ? `Bearer ${token}` : "",
+    authorization: token ? `Bearer ${token}` : '',
     }
 }
 });
