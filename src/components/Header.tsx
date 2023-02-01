@@ -12,7 +12,7 @@ import AccountNav from "./AccountNav";
 type DrawerState = 'init' | 'open' | 'closed';
 
 const Header = () => {
-    const { user }: any = useAuthContext();
+    // const { user }: any = useAuthContext();
     const [open, setOpen] = useState<DrawerState>('init');
     const [content, setContent] = useState(<></>);
 
@@ -40,7 +40,7 @@ const Header = () => {
                             </svg>
                         </ImageWrapper>
                     </div>
-                    {user && user.name}
+                    "No name"
                     <select
                         defaultValue={ themes.find(theme => theme === userTheme) } 
                         onChange={ (e) => changeTheme(e.target.value) }

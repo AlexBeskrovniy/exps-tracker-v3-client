@@ -18,7 +18,7 @@ const LOGIN_USER = gql`
 `;
 
 const SignIn = () => {
-    const { onLogIn }: any = useAuthContext();
+    // const { onLogIn }: any = useAuthContext();
 
     const [loginUser, { data, loading, error }] = useMutation(LOGIN_USER);
 
@@ -26,7 +26,7 @@ const SignIn = () => {
     if (error) console.log(`Submission error! ${error.message}`);
     if (data) {() => {
         console.log(data);
-        onLogIn(data.login, data.login.token);   
+        // onLogIn(data.login, data.login.token);   
     }}
     return(
         <Container>
