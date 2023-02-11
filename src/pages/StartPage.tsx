@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+
+import { useAuthContext } from "../providers/AuthProvider";
 
 import {Container, Flex } from "../components/styled/Layout.styled";
 import Button from "../components/styled/Button.styled";
@@ -7,6 +9,11 @@ import { Heading } from "../components/styled/Text.styled";
 import coinsImage from "../assets/coins.png";
 
 const StartPage = () => {
+    const { user } = useAuthContext();
+
+    if (user) {
+        return <Navigate to="/main" replace />
+    }
     return(
         <Container>
             <Flex height="100vh" direction="column" justify="space-between" align="center">

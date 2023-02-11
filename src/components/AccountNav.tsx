@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 
+import { useAuthContext } from "../providers/AuthProvider";
 import { Flex, NavLinkWrapper } from "./styled/Layout.styled";
 
 interface NavProps {
@@ -7,6 +8,8 @@ interface NavProps {
 }
 
 const AccountNav = (props: NavProps) => {
+    const { onLogout } = useAuthContext();
+
     return(
         <Flex direction="column" align="flex-start" padding="1rem">
             <NavLinkWrapper onClick={props.closeDrawer}>
@@ -19,10 +22,10 @@ const AccountNav = (props: NavProps) => {
                     Settings
                 </NavLink>
             </NavLinkWrapper>
-            <NavLinkWrapper onClick={props.closeDrawer}>
-                <NavLink to="logout">
+            <NavLinkWrapper onClick={onLogout}>
+                <a>
                     LogOut
-                </NavLink>
+                </a>
             </NavLinkWrapper>
         </Flex>
     );

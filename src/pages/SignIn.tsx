@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { gql, useMutation } from '@apollo/client';
 
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../providers/AuthProvider";
 import { Container, Flex } from "../components/styled/Layout.styled";
 import { Heading, Text } from "../components/styled/Text.styled";
@@ -18,16 +19,17 @@ const LOGIN_USER = gql`
 `;
 
 const SignIn = () => {
-    // const { onLogIn }: any = useAuthContext();
+    const { onLogin } = useAuthContext();
+    const navigate = useNavigate();
 
-    const [loginUser, { data, loading, error }] = useMutation(LOGIN_USER);
-
-    if (loading) console.log('Submitting...');
-    if (error) console.log(`Submission error! ${error.message}`);
-    if (data) {() => {
+    const [loginUser] = useMutation(LOGIN_USER, {
+        onCompleted(data,) {
         console.log(data);
-        // onLogIn(data.login, data.login.token);   
-    }}
+        onLogin(data.login);
+        navigate('/main')
+        },
+    });
+
     return(
         <Container>
             <Flex height="100vh" direction="column" justify="space-between" align="center">

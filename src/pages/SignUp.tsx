@@ -19,16 +19,15 @@ const ADD_USER = gql`
 `;
 
 const SignUp = () => {
-    // const { onLogIn }: any = useAuthContext();
+    const context: any = useAuthContext();
     const navigate = useNavigate();
-    const [addUser, { data, loading, error }] = useMutation(ADD_USER);
-    if (loading) console.log('Submitting...');
-    if (error) console.log(`Submission error! ${error.message}`);
-    if (data) { 
-        localStorage.setItem('authToken', data.register.token);
-        navigate('/main')
-       };
-    // onLogIn(data.register, data.register.token);
+    const [addUser] = useMutation(ADD_USER, {
+        onCompleted(data) {
+            context.onLogin(data.register);
+            navigate('/main')
+        }
+    });
+
     return(
         <Container>
             <Flex height="100vh" direction="column" justify="space-between" align="center">

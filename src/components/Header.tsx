@@ -12,7 +12,7 @@ import AccountNav from "./AccountNav";
 type DrawerState = 'init' | 'open' | 'closed';
 
 const Header = () => {
-    // const { user }: any = useAuthContext();
+    const { user }: any = useAuthContext();
     const [open, setOpen] = useState<DrawerState>('init');
     const [content, setContent] = useState(<></>);
 
@@ -40,7 +40,7 @@ const Header = () => {
                             </svg>
                         </ImageWrapper>
                     </div>
-                    "No name"
+                    {user && <span>Hello, {user.name}</span>}
                     <select
                         defaultValue={ themes.find(theme => theme === userTheme) } 
                         onChange={ (e) => changeTheme(e.target.value) }
@@ -50,13 +50,6 @@ const Header = () => {
                             <option key={theme} value={theme}>{theme.toUpperCase()}</option>
                         ))}
                     </select>
-                    <div onClick={() => useDrawer(<AccountNav closeDrawer={closeDrawer} />)}>
-                        <ImageWrapper size="2rem">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" preserveAspectRatio="none">
-                                <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
-                            </svg>
-                        </ImageWrapper>
-                    </div>
                 </Flex>
             </Container>
         </StyledHeader>

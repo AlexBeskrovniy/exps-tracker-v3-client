@@ -7,7 +7,7 @@ interface ProtectedPageProps {
 }
 
 const ProtectedRoute = (props: ProtectedPageProps) => {
-    const { user }: any = useAuthContext();
+    const { user } = useAuthContext();
     if (!user) {
         return <Navigate to="/signin" replace />
     }
