@@ -7,7 +7,6 @@ import { StyledHeader } from "./styled/Details.styled";
 import ImageWrapper from "./styled/ImageWrapper.styled";
 import Drawer from "./Drawer";
 import Nav from "./Nav";
-import AccountNav from "./AccountNav";
 
 type DrawerState = 'init' | 'open' | 'closed';
 

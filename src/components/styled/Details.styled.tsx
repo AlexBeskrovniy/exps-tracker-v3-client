@@ -23,10 +23,8 @@ export const StyledFooter = styled.footer`
 
 export const CardWrapper = styled.div`
     width: min(350px, 100%);
-    padding: .5rem;
-    margin-bottom: 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 1rem;
+    margin-top: 1rem;
+    border-bottom: 2px solid var(--border-color);
 `
 
 export const DrawerWrapper = styled.div<ModalProps>`

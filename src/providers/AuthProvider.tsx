@@ -1,4 +1,4 @@
-import { useContext, createContext, useReducer } from 'react';
+import { useContext, createContext, useReducer, ProviderProps } from 'react';
 import jwt_decode from "jwt-decode";
 
 type TokenData = {
@@ -64,7 +64,7 @@ const authReducer = (state: any, action: { type: string; payload?: TokenData | U
     }
 }
 
-const AuthProvider = (props: JSX.IntrinsicAttributes) => {
+const AuthProvider = (props: JSX.IntrinsicAttributes & ProviderProps<AuthContextValue>) => {
     const [state, dispatch] = useReducer(authReducer, initialState);
 
     const onLogin = (userData: User) => {
@@ -83,8 +83,10 @@ const AuthProvider = (props: JSX.IntrinsicAttributes) => {
     return (
         <AuthContext.Provider
             value={{ user: state.user, onLogin, onLogout }}
-            {...props}
-        />
+            
+        >
+            {props.children}
+        </AuthContext.Provider>
     );
 }
 
