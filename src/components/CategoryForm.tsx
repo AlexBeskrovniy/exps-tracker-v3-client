@@ -2,6 +2,11 @@ import { Container, Flex } from "../components/styled/Layout.styled";
 import { Form, Input } from "../components/styled/Form.styled";
 
 import { gql, useMutation } from '@apollo/client';
+import { GET_CATEGORIES } from "../pages/Categories";
+
+interface CategoryFormProps {
+    closeModal: () => void
+}
 
 const ADD_CATEGORY = gql`
     mutation createCategory($input: CategoryInput) {
@@ -13,9 +18,15 @@ const ADD_CATEGORY = gql`
     }
 `
 
-const CategoryForm = () => {
-    const [addCategory, {data}] = useMutation(ADD_CATEGORY);
+const CategoryForm = (props: CategoryFormProps) => {
+    const [addCategory, {data}] = useMutation(ADD_CATEGORY, {
+        refetchQueries: [
+            {query: GET_CATEGORIES},
+            'categories'
+          ],
+    });
     if(data) console.log(data);
+
     return(
         <Container>
             <Flex height="100%" direction="column" justify="center" align="center">
@@ -29,6 +40,8 @@ const CategoryForm = () => {
                                     description: description
                                 }
                             } });
+
+                            props.closeModal();
                         } }>
                     <Flex width="100%" direction="column" justify="space-between" align="center">
                         <Input marginBottom="1rem" type="text" name="name" placeholder="Name" required />

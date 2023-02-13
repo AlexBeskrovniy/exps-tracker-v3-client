@@ -9,7 +9,7 @@ import CategoryForm from "../components/CategoryForm";
 
 import { gql, useQuery } from '@apollo/client';
 
-const GET_CATEGORIES = gql`
+export const GET_CATEGORIES = gql`
     query categories {
         categories {
             id
@@ -21,6 +21,7 @@ const GET_CATEGORIES = gql`
 
 interface Modal {
     useModal: (content: JSX.Element) => void
+    closeModal: () => void
 }
 
 interface CategoryInterface {
@@ -31,15 +32,15 @@ interface CategoryInterface {
 
 const Categories = () => {
     const { loading, error, data } = useQuery(GET_CATEGORIES);
-    const { useModal }: Modal = useOutletContext();
+    const { useModal, closeModal }: Modal = useOutletContext();
     if (loading) return "Loading..."
     if(error) return `Error: ${error}`
-    if(data) console.log(data);
+    // if(data) console.log(data);
     return(
         <>
             <Flex justify="space-between">
                 <PageHeading>Categories</PageHeading>
-                <RoundButton onClick={() => useModal(<CategoryForm/>)}>
+                <RoundButton onClick={() => useModal(<CategoryForm closeModal={closeModal} />)}>
                     <ImageWrapper size="1rem">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                             <path d="M240 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H176V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H384c17.7 0 32-14.3 32-32s-14.3-32-32-32H240V80z"/>

@@ -24,7 +24,7 @@ const MasterPage = () => {
         <>
             <Header />
                 <Container>
-                    <Outlet context={{ useModal }} />
+                    <Outlet context={{ useModal, closeModal }} />
                 </Container>
                 <Modal open={ open } closeModal={ closeModal } children={ content } />
             <Footer />
