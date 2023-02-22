@@ -1,22 +1,13 @@
 import { Container, Flex } from "../components/styled/Layout.styled";
 import { Form, Input } from "../components/styled/Form.styled";
 
-import { gql, useMutation } from '@apollo/client';
-import { GET_CATEGORIES } from "../pages/Categories";
+import { ADD_CATEGORY } from "../gql-requests/mutations";
+import { GET_CATEGORIES } from "../gql-requests/queries";
+import { useMutation } from '@apollo/client';
 
 interface CategoryFormProps {
     closeModal: () => void
 }
-
-const ADD_CATEGORY = gql`
-    mutation createCategory($input: CategoryInput) {
-        createCategory(input: $input) {
-            id
-            name
-            description
-        }
-    }
-`
 
 const CategoryForm = (props: CategoryFormProps) => {
     const [addCategory, {data}] = useMutation(ADD_CATEGORY, {

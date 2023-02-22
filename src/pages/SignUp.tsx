@@ -5,18 +5,8 @@ import { Container, Flex } from "../components/styled/Layout.styled";
 import { Heading, Text } from "../components/styled/Text.styled";
 import { Form, Input } from "../components/styled/Form.styled";
 
-import { gql, useMutation } from '@apollo/client';
-
-const ADD_USER = gql`
-  mutation register($input: RegisterUserInput) {
-    register(input: $input) {
-        id
-        name
-        email
-        token
-    }
-  }
-`;
+import { ADD_USER } from "../gql-requests/mutations";
+import { useMutation } from '@apollo/client';
 
 const SignUp = () => {
     const context: any = useAuthContext();

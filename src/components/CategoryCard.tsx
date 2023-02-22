@@ -7,6 +7,9 @@ import { RoundButton } from "./styled/RoundButton.styled";
 
 import ImageWrapper from "./styled/ImageWrapper.styled";
 
+import { DELETE_CATEGORY } from "../gql-requests/mutations";
+import { useMutation } from "@apollo/client";
+
 interface CategoryCardProps {
     name: string;
     description: string | null

@@ -7,17 +7,8 @@ import ImageWrapper from "../components/styled/ImageWrapper.styled";
 import CategoryCard from "../components/CategoryCard";
 import CategoryForm from "../components/CategoryForm";
 
-import { gql, useQuery } from '@apollo/client';
-
-export const GET_CATEGORIES = gql`
-    query categories {
-        categories {
-            id
-            name
-            description
-        }
-    }
-`
+import { GET_CATEGORIES } from "../gql-requests/queries";
+import { useQuery } from "@apollo/client";
 
 interface Modal {
     useModal: (content: JSX.Element) => void
@@ -33,9 +24,8 @@ interface CategoryInterface {
 const Categories = () => {
     const { loading, error, data } = useQuery(GET_CATEGORIES);
     const { useModal, closeModal }: Modal = useOutletContext();
-    if (loading) return "Loading..."
-    if(error) return `Error: ${error}`
-    // if(data) console.log(data);
+    if (loading) return "Loading...";
+    if(error) return `Error: ${error}`;
     return(
         <>
             <Flex justify="space-between">

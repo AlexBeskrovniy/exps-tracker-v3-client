@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { gql, useMutation } from '@apollo/client';
 
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../providers/AuthProvider";
@@ -7,16 +6,8 @@ import { Container, Flex } from "../components/styled/Layout.styled";
 import { Heading, Text } from "../components/styled/Text.styled";
 import { Form, Input } from "../components/styled/Form.styled";
 
-const LOGIN_USER = gql`
-  mutation login($input: LoginUserInput) {
-    login(input: $input) {
-        id
-        name
-        email
-        token
-    }
-  }
-`;
+import { LOGIN_USER } from "../gql-requests/mutations";
+import { useMutation } from '@apollo/client';
 
 const SignIn = () => {
     const { onLogin } = useAuthContext();
