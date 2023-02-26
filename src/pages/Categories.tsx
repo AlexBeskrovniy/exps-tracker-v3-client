@@ -41,6 +41,7 @@ const Categories = () => {
             {data.categories.map((category: CategoryInterface) => (
                 <CategoryCard
                     key={category.id}
+                    id={category.id}
                     name={category.name}
                     description={category.description}
                 />
