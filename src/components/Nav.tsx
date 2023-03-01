@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
-import { useAuthContext } from "../providers/AuthProvider";
-import { Flex, NavLinkWrapper } from "./styled/Layout.styled";
+import { useAuthContext } from "providers/AuthProvider";
+import { Flex, NavLinkWrapper } from "styled/Layout.styled";
 
 interface NavProps {
     closeDrawer: () => void 

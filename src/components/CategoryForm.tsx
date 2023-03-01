@@ -1,5 +1,5 @@
-import { Container, Flex } from "../components/styled/Layout.styled";
-import { Form, Input } from "../components/styled/Form.styled";
+import { Container, Flex } from "styled/Layout.styled";
+import { Form, Input } from "styled/Form.styled";
 
 import { ADD_CATEGORY } from "../gql-requests/mutations";
 import { GET_CATEGORIES } from "../gql-requests/queries";

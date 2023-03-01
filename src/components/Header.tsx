@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
 import { ThemeContext } from 'styled-components'
-import { useAuthContext } from "../providers/AuthProvider";
+import { useAuthContext } from "providers/AuthProvider";
 
-import { Container, Flex } from "./styled/Layout.styled";
-import { StyledHeader } from "./styled/Details.styled";
-import ImageWrapper from "./styled/ImageWrapper.styled";
+import { Container, Flex } from "styled/Layout.styled";
+import { StyledHeader } from "styled/Details.styled";
+import ImageWrapper from "styled/ImageWrapper.styled";
 import Drawer from "./Drawer";
 import Nav from "./Nav";
 

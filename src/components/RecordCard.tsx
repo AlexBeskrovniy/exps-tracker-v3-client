@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import { CardWrapper } from "../components/styled/Details.styled";
-import { Flex } from "../components/styled/Layout.styled";
-import { CardHeading, DateText, Text } from "../components/styled/Text.styled";
-import { RoundButton } from "./styled/RoundButton.styled";
-import ImageWrapper from "./styled/ImageWrapper.styled";
+import { CardWrapper } from "styled/Details.styled";
+import { Flex } from "styled/Layout.styled";
+import { CardHeading, DateText, Text } from "styled/Text.styled";
+import { RoundButton } from "styled/RoundButton.styled";
+import ImageWrapper from "styled/ImageWrapper.styled";
 
 const RecordCard = () => {
     const [open, setOpen] = useState(false);

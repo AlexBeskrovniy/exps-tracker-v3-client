@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
-import { Flex } from "../components/styled/Layout.styled";
-import { CardHeading, Text } from "../components/styled/Text.styled";
-import { CardWrapper } from "../components/styled/Details.styled";
-import { RoundButton } from "./styled/RoundButton.styled";
+import { Flex } from "styled/Layout.styled";
+import { CardHeading, Text } from "styled/Text.styled";
+import { CardWrapper } from "styled/Details.styled";
+import { RoundButton } from "styled/RoundButton.styled";
 
-import ImageWrapper from "./styled/ImageWrapper.styled";
+import ImageWrapper from "styled/ImageWrapper.styled";
 import DeleteConfirm from "./DeleteConfirm";
 
 interface Modal {

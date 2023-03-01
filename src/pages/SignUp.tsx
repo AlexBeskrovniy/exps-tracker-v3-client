@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../providers/AuthProvider";
-import { Container, Flex } from "../components/styled/Layout.styled";
-import { Heading, Text } from "../components/styled/Text.styled";
-import { Form, Input } from "../components/styled/Form.styled";
+import { useAuthContext } from "providers/AuthProvider";
+import { Container, Flex } from "styled/Layout.styled";
+import { Heading, Text } from "styled/Text.styled";
+import { Form, Input } from "styled/Form.styled";
 
 import { ADD_USER } from "../gql-requests/mutations";
 import { useMutation } from '@apollo/client';

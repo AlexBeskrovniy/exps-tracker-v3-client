@@ -1,8 +1,8 @@
-import { Flex } from "../components/styled/Layout.styled";
-import { Text } from "../components/styled/Text.styled";
-import { RoundButton } from "./styled/RoundButton.styled";
+import { Flex } from "styled/Layout.styled";
+import { Text } from "styled/Text.styled";
+import { RoundButton } from "styled/RoundButton.styled";
 
-import ImageWrapper from "./styled/ImageWrapper.styled";
+import ImageWrapper from "styled/ImageWrapper.styled";
 
 import { DELETE_CATEGORY } from "../gql-requests/mutations";
 import { GET_CATEGORIES } from "../gql-requests/queries";

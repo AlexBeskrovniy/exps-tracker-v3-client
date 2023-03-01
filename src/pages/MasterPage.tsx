@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Outlet } from "react-router-dom";
 
-import { Container } from "../components/styled/Layout.styled";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Modal from "../components/Modal";
+import { Container } from "styled/Layout.styled";
+import Header from "components/Header";
+import Footer from "components/Footer";
+import Modal from "components/Modal";
 
 type ModalState = 'init' | 'open' | 'closed';
 

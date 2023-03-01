@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
-import { PageHeading } from "../components/styled/Text.styled";
-import RecordCard from "../components/RecordCard";
+import { PageHeading } from "styled/Text.styled";
+import RecordCard from "components/RecordCard";
 
 interface Modal {
     useModal: (content: JSX.Element) => void

@@ -1,11 +1,11 @@
 import { Link, Navigate } from "react-router-dom";
 
-import { useAuthContext } from "../providers/AuthProvider";
+import { useAuthContext } from "providers/AuthProvider";
 
-import {Container, Flex } from "../components/styled/Layout.styled";
-import Button from "../components/styled/Button.styled";
-import ImageWrapper from "../components/styled/ImageWrapper.styled";
-import { Heading } from "../components/styled/Text.styled";
+import {Container, Flex } from "styled/Layout.styled";
+import Button from "styled/Button.styled";
+import ImageWrapper from "styled/ImageWrapper.styled";
+import { Heading } from "styled/Text.styled";
 import coinsImage from "../assets/coins.png";
 
 const StartPage = () => {

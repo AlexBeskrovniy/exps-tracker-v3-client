@@ -1,11 +1,11 @@
 import { useOutletContext } from "react-router-dom";
 
-import { Flex } from "../components/styled/Layout.styled";
-import { PageHeading } from "../components/styled/Text.styled";
-import { RoundButton } from "../components/styled/RoundButton.styled";
-import ImageWrapper from "../components/styled/ImageWrapper.styled";
-import CategoryCard from "../components/CategoryCard";
-import CategoryForm from "../components/CategoryForm";
+import { Flex } from "styled/Layout.styled";
+import { PageHeading } from "styled/Text.styled";
+import { RoundButton } from "styled/RoundButton.styled";
+import ImageWrapper from "styled/ImageWrapper.styled";
+import CategoryCard from "components/CategoryCard";
+import CategoryForm from "components/CategoryForm";
 
 import { GET_CATEGORIES } from "../gql-requests/queries";
 import { useQuery } from "@apollo/client";
