@@ -37,6 +37,7 @@ const SignIn = () => {
                                     password: password
                                 }
                         } });
+                        e.target.reset();
                     } }>
                         <Flex width="100%" direction="column" justify="space-between" align="center">
                             <Input type="email" name="email" placeholder="Email" required />

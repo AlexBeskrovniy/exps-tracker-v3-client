@@ -11,7 +11,8 @@ export default defineConfig({
       "pages": `${path.resolve(__dirname, "./src/pages")}`,
       "providers": `${path.resolve(__dirname, "./src/providers")}`,
       "components": `${path.resolve(__dirname, "./src/components")}`,
-      "styled": `${path.resolve(__dirname, "./src/components/styled")}`
+      "styled": `${path.resolve(__dirname, "./src/components/styled")}`,
+      "gql-requests": `${path.resolve(__dirname, "./src/gql-requests")}`
     }
   }
 })

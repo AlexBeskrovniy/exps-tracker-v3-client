@@ -21,7 +21,8 @@
       "pages/*": ["src/pages/*"],
       "providers/*": ["src/providers/*"],
       "components/*": ["src/components/*"],
-      "styled/*": ["src/components/styled/*"]
+      "styled/*": ["src/components/styled/*"],
+      "gql-requests/*": ["src/gql-requests/*"]
     }
   },
   "include": ["src"],

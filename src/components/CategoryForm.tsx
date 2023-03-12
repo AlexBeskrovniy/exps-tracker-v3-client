@@ -1,8 +1,8 @@
 import { Container, Flex } from "styled/Layout.styled";
 import { Form, Input } from "styled/Form.styled";
 
-import { ADD_CATEGORY } from "../gql-requests/mutations";
-import { GET_CATEGORIES } from "../gql-requests/queries";
+import { ADD_CATEGORY } from "gql-requests/mutations";
+import { GET_CATEGORIES } from "gql-requests/queries";
 import { useMutation } from '@apollo/client';
 
 interface CategoryFormProps {
@@ -16,7 +16,6 @@ const CategoryForm = (props: CategoryFormProps) => {
             'categories'
           ],
     });
-    if(data) console.log(data);
 
     return(
         <Container>
@@ -31,7 +30,7 @@ const CategoryForm = (props: CategoryFormProps) => {
                                     description: description
                                 }
                             } });
-
+                            e.target.reset();
                             props.closeModal();
                         } }>
                     <Flex width="100%" direction="column" justify="space-between" align="center">

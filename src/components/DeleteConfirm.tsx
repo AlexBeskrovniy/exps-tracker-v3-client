@@ -4,8 +4,8 @@ import { RoundButton } from "styled/RoundButton.styled";
 
 import ImageWrapper from "styled/ImageWrapper.styled";
 
-import { DELETE_CATEGORY } from "../gql-requests/mutations";
-import { GET_CATEGORIES } from "../gql-requests/queries";
+import { DELETE_CATEGORY } from "gql-requests/mutations";
+import { GET_CATEGORIES } from "gql-requests/queries";
 import { useMutation } from "@apollo/client";
 
 interface CategoryFormProps {

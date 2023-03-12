@@ -36,6 +36,7 @@ const SignUp = () => {
                                     confirmPassword: confirm
                                 }
                             } });
+                            e.target.reset();
                         } }>
                         <Flex width="100%" direction="column" justify="space-between" align="center">
                             <Input type="text" name="username" placeholder="Username" required />
