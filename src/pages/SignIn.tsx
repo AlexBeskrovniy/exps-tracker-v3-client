@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { useNavigate } from "react-router-dom";
+import useFormSubmit from "components/useFormSubmit";
 import { useAuthContext } from "providers/AuthProvider";
+
 import { Container, Flex } from "styled/Layout.styled";
 import { Heading, Text } from "styled/Text.styled";
 import { Form, Input } from "styled/Form.styled";
 
-import { LOGIN_USER } from "../gql-requests/mutations";
+import { LOGIN_USER } from "gql-requests/mutations";
 import { useMutation } from '@apollo/client';
 
 const SignIn = () => {
@@ -26,19 +27,7 @@ const SignIn = () => {
             <Flex height="100vh" direction="column" justify="space-between" align="center">
                 <Heading>Sign In</Heading>
                 
-                    <Form 
-                        onSubmit={ (e: any) => {
-                            e.preventDefault();
-                            const formData = new FormData(e.target)
-                            const { email, password } = Object.fromEntries(formData);
-                            loginUser({ variables: {
-                                input: {
-                                    email: email,
-                                    password: password
-                                }
-                        } });
-                        e.target.reset();
-                    } }>
+                    <Form onSubmit={(e) => useFormSubmit(e, loginUser)}>
                         <Flex width="100%" direction="column" justify="space-between" align="center">
                             <Input type="email" name="email" placeholder="Email" required />
                             <Input type="password" name="password" placeholder="Password" required />

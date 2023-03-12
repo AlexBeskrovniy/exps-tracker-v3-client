@@ -1,6 +1,5 @@
-import { Container, Flex } from "../components/styled/Layout.styled";
-import { Form, Input, SelectWrapper, Select } from "../components/styled/Form.styled";
-import ImageWrapper from "./styled/ImageWrapper.styled";
+import { Container, Flex } from "styled/Layout.styled";
+import { Form, Input, SelectWrapper, Select } from "styled/Form.styled";
 
 const RecordForm = () => {
     return(

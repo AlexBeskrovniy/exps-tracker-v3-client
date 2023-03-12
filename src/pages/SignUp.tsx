@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import useFormSubmit from "components/useFormSubmit";
 import { useAuthContext } from "providers/AuthProvider";
+
 import { Container, Flex } from "styled/Layout.styled";
 import { Heading, Text } from "styled/Text.styled";
 import { Form, Input } from "styled/Form.styled";
@@ -23,23 +25,9 @@ const SignUp = () => {
             <Flex height="100vh" direction="column" justify="space-between" align="center">
                 <Heading>Sign Up</Heading>
                 
-                    <Form
-                        onSubmit={ (e: any) => {
-                            e.preventDefault();
-                            const formData = new FormData(e.target)
-                            const { username, email, password, confirm } = Object.fromEntries(formData);
-                            addUser({ variables: {
-                                input: {
-                                    name: username,
-                                    email: email,
-                                    password: password,
-                                    confirmPassword: confirm
-                                }
-                            } });
-                            e.target.reset();
-                        } }>
+                    <Form onSubmit={(e) => useFormSubmit(e, addUser)}>
                         <Flex width="100%" direction="column" justify="space-between" align="center">
-                            <Input type="text" name="username" placeholder="Username" required />
+                            <Input type="text" name="name" placeholder="Username" required />
                             <Input type="email" name="email" placeholder="Email" required />
                             <Input type="password" name="password" placeholder="Password" required />
                             <Input type="password" name="confirm" placeholder="Confirm password" required />
