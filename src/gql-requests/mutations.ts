@@ -35,11 +35,21 @@ export const ADD_CATEGORY = gql`
 `;
 
 export const DELETE_CATEGORY = gql`
-    mutation Mutation($deleteCategoryId: ID!) {
+    mutation deleteCategory($deleteCategoryId: ID!) {
         deleteCategory(id: $deleteCategoryId) {
             id
             name
             description
         }
     }
+`;
+
+export const UPDATE_CATEGORY = gql`
+  mutation updateCategory($updateCategoryId: ID!, $input: CategoryInput) {
+    updateCategory(id: $updateCategoryId, input: $input) {
+      id
+      description
+      name
+    }
+  }
 `;
