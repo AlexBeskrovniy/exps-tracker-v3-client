@@ -12,7 +12,8 @@ export default defineConfig({
       "providers": `${path.resolve(__dirname, "./src/providers")}`,
       "components": `${path.resolve(__dirname, "./src/components")}`,
       "styled": `${path.resolve(__dirname, "./src/components/styled")}`,
-      "gql-requests": `${path.resolve(__dirname, "./src/gql-requests")}`
+      "gql-requests": `${path.resolve(__dirname, "./src/gql-requests")}`,
+      "types": `${path.resolve(__dirname, "./src/types.ts")}`
     }
   }
 })

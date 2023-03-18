@@ -53,3 +53,17 @@ export const UPDATE_CATEGORY = gql`
     }
   }
 `;
+
+//Records
+export const ADD_RECORD = gql`
+    mutation createRecord($input: RecordInput) {
+        createRecord(input: $input) {
+            id
+            money
+            description
+            categoryID
+            categoryName
+            createdAt
+        }
+    }
+`;

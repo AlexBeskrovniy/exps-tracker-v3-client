@@ -16,7 +16,7 @@ interface CategoryFormProps {
 interface CategoryInterface {
     id: string;
     name: string;
-    description: string | null
+    description: string | undefined
 }
 
 const CategoryForm = (props: CategoryFormProps) => {

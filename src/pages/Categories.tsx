@@ -7,7 +7,7 @@ import ImageWrapper from "styled/ImageWrapper.styled";
 import CategoryCard from "components/CategoryCard";
 import CategoryForm from "components/CategoryForm";
 
-import { GET_CATEGORIES } from "../gql-requests/queries";
+import { GET_CATEGORIES } from "gql-requests/queries";
 import { useQuery } from "@apollo/client";
 
 interface Modal {
@@ -18,7 +18,7 @@ interface Modal {
 interface CategoryInterface {
     id: string;
     name: string;
-    description: string | null
+    description: string | undefined
 }
 
 const Categories = () => {

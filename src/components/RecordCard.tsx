@@ -6,26 +6,28 @@ import { CardHeading, DateText, Text } from "styled/Text.styled";
 import { RoundButton } from "styled/RoundButton.styled";
 import ImageWrapper from "styled/ImageWrapper.styled";
 
-const RecordCard = () => {
+import { RecordsInterface } from "types";
+
+const RecordCard = (props: RecordsInterface) => {
     const [open, setOpen] = useState(false);
 
     const toggleOpenCard = () => {
         setOpen(!open);
     }
-
+    
     return (
         <CardWrapper onClick={toggleOpenCard}>
             <Flex width="100%" justify="space-between">
-                <DateText>Tue Jan 05 2023</DateText>
-                <CardHeading>16.340.045</CardHeading>
+                <DateText>{new Date(+props.createdAt).toDateString()}</DateText>
+                <CardHeading>{props.money}</CardHeading>
             </Flex>
             {open && (
                 <>
                 <Flex width="100%" justify="center">
-                <Text>Some description for this record</Text>
+                <Text>{props.description}</Text>
                 </Flex>
                 <Flex width="100%" justify="space-between">
-                    <CardHeading>Category</CardHeading>
+                    <CardHeading>{props.categoryName}</CardHeading>
                     <Flex width="100%" padding="0 0 .5rem 0" justify="end" gap="1rem">
                         <RoundButton>
                             <ImageWrapper size="1rem">

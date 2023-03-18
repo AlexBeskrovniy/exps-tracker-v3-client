@@ -5,6 +5,7 @@ const useFormSubmit = (e: React.FormEvent, callback:((options?: MutationFunction
     const form = e.target as HTMLFormElement
     const formData = new FormData(form)
     const data = Object.fromEntries(formData);
+    console.log(data);
     if (id) {
         callback({ variables: {
             updateCategoryId: id,

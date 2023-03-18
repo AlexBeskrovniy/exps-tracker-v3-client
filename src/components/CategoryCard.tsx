@@ -18,7 +18,7 @@ interface Modal {
 interface CategoryInterface {
     id: string;
     name: string;
-    description: string | null
+    description: string | undefined
 }
 
 const CategoryCard = (props: CategoryInterface) => {

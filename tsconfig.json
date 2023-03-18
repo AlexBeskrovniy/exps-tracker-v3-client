@@ -22,7 +22,8 @@
       "providers/*": ["src/providers/*"],
       "components/*": ["src/components/*"],
       "styled/*": ["src/components/styled/*"],
-      "gql-requests/*": ["src/gql-requests/*"]
+      "gql-requests/*": ["src/gql-requests/*"],
+      "types": ["src/types.ts"]
     }
   },
   "include": ["src"],
