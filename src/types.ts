@@ -21,5 +21,5 @@ export interface RecordsInterface {
 export interface RecordFormProps {
     closeModal: () => void;
     requestType: string;
-    category?: RecordsInterface
+    record?: RecordsInterface
 }

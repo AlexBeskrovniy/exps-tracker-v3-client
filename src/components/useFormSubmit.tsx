@@ -8,7 +8,7 @@ const useFormSubmit = (e: React.FormEvent, callback:((options?: MutationFunction
     console.log(data);
     if (id) {
         callback({ variables: {
-            updateCategoryId: id,
+            id: id,
             input: data
         }});
     } else {

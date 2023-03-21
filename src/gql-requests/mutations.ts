@@ -35,8 +35,8 @@ export const ADD_CATEGORY = gql`
 `;
 
 export const DELETE_CATEGORY = gql`
-    mutation deleteCategory($deleteCategoryId: ID!) {
-        deleteCategory(id: $deleteCategoryId) {
+    mutation deleteCategory($id: ID!) {
+        deleteCategory(id: $id) {
             id
             name
             description
@@ -45,8 +45,8 @@ export const DELETE_CATEGORY = gql`
 `;
 
 export const UPDATE_CATEGORY = gql`
-  mutation updateCategory($updateCategoryId: ID!, $input: CategoryInput) {
-    updateCategory(id: $updateCategoryId, input: $input) {
+  mutation updateCategory($id: ID!, $input: CategoryInput) {
+    updateCategory(id: $id, input: $input) {
       id
       description
       name
@@ -56,14 +56,40 @@ export const UPDATE_CATEGORY = gql`
 
 //Records
 export const ADD_RECORD = gql`
-    mutation createRecord($input: RecordInput) {
-        createRecord(input: $input) {
-            id
-            money
-            description
-            categoryID
-            categoryName
-            createdAt
-        }
+  mutation createRecord($input: RecordInput) {
+    createRecord(input: $input) {
+        id
+        money
+        description
+        categoryID
+        categoryName
+        createdAt
     }
+  }
+`;
+
+export const DELETE_RECORD = gql`
+  mutation deleteRecord($id: ID!) {
+    deleteRecord(id: $id) {
+        id
+        money
+        categoryID
+        categoryName
+        description
+        createdAt
+    }
+  }
+`;
+
+export const UPDATE_RECORD = gql`
+  mutation updateRecord($id: ID!, $input: RecordInput) {
+    updateRecord(id: $id, input: $input) {
+      id
+      money
+      categoryID
+      categoryName
+      description
+      createdAt
+    }
+  }
 `;

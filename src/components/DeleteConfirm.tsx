@@ -4,24 +4,31 @@ import { RoundButton } from "styled/RoundButton.styled";
 
 import ImageWrapper from "styled/ImageWrapper.styled";
 
-import { DELETE_CATEGORY } from "gql-requests/mutations";
-import { GET_CATEGORIES } from "gql-requests/queries";
+import { DELETE_CATEGORY, DELETE_RECORD } from "gql-requests/mutations";
+import { GET_CATEGORIES, GET_RECORDS } from "gql-requests/queries";
 import { useMutation } from "@apollo/client";
 
-interface CategoryFormProps {
-    closeModal: () => void
-    categoryId: string
+interface ConfirmFormProps {
+    closeModal: () => void;
+    id: string;
+    dataType: string;
 }
 
-const DeleteConfirm = (props: CategoryFormProps) => {
-    const [deleteCategory, {data, error}] = useMutation(DELETE_CATEGORY, {
+const DeleteConfirm = (props: ConfirmFormProps) => {
+    const [deleteCategory] = useMutation(DELETE_CATEGORY, {
         refetchQueries: [
             {query: GET_CATEGORIES},
             'categories'
           ],
     });
-    if(data) console.log(data);
-    if(error) console.log(error);
+    const [deleteRecord] = useMutation(DELETE_RECORD, {
+        refetchQueries: [
+            {query: GET_RECORDS},
+            'records'
+          ],
+    });
+
+    const destroy = props.dataType === 'record' ? deleteRecord : deleteCategory;
 
     return (
         <Flex direction="column" gap="1rem" justify="center">
@@ -34,9 +41,9 @@ const DeleteConfirm = (props: CategoryFormProps) => {
                         </svg>
                     </ImageWrapper>
                 </RoundButton>
-                <RoundButton onClick={() => {deleteCategory(
+                <RoundButton onClick={() => {destroy(
                         { variables: {
-                            deleteCategoryId: props.categoryId
+                            id: props.id
                         }});
                         props.closeModal();
                     }
