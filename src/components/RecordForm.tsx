@@ -28,7 +28,7 @@ console.log(data)
 
     const requestCallback = props.requestType === "update" ? updateRecord : addRecord;
     const id = props.requestType === "update" ? props.record?.id : null;
-    const defaultDate = props.record?.createdAt && new Date(+props.record?.createdAt).toLocaleDateString();
+    const defaultDate = props.record?.createdAt && new Date(+props.record?.createdAt).toLocaleDateString().split('.').reverse().join('-');
     return(
         <Container>
             <Flex height="100%" direction="column" justify="center" align="center">
