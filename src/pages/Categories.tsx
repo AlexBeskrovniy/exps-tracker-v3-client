@@ -24,8 +24,8 @@ interface CategoryInterface {
 const Categories = () => {
     const { loading, error, data } = useQuery(GET_CATEGORIES);
     const { useModal, closeModal }: Modal = useOutletContext();
-    if (loading) return "Loading...";
-    if(error) return `Error: ${error}`;
+    if (loading) return <p>Loading...</p>;
+    if(error) return <p>Error</p>;
     return(
         <>
             <Flex justify="space-between">

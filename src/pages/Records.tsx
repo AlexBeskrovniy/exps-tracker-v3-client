@@ -14,8 +14,8 @@ import { useQuery } from "@apollo/client";
 const Records = () => {
     const { loading, error, data } = useQuery(GET_RECORDS);
     const { useModal, closeModal }: Modal = useOutletContext();
-    if (loading) return "Loading...";
-    if(error) return `Error: ${error}`;
+    if (loading) return <p>Loading...</p>;
+    if(error) return <p>Error</p>;
 
     return(
         <>
