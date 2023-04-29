@@ -10,12 +10,14 @@ import SignIn from "pages/SignIn";
 import MasterPage from "pages/MasterPage";
 import Records from "pages/Records";
 import Categories from "pages/Categories";
+import SvgSprite from "./components/SvgSprite";
 
 const App = () => {
   return (
     <ThemeProvider>
       <BrowserRouter>
         <GlobalStyles />
+        <SvgSprite />
             <Routes>
               <Route path="/" element={<StartPage />} />
               <Route path="signup" element={<SignUp />} />
