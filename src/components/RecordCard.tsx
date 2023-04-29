@@ -18,7 +18,7 @@ const RecordCard = (props: RecordsInterface) => {
     const toggleOpenCard = () => {
         setOpen(!open);
     }
-    
+
     return (
         <CardWrapper onClick={toggleOpenCard}>
             <Flex width="100%" justify="space-between">

@@ -2,7 +2,7 @@ import useFormSubmit from './useFormSubmit';
 
 import { Container, Flex } from "styled/Layout.styled";
 import { Form, Input, SelectWrapper, Select } from "styled/Form.styled";
-
+import FormSelect from './FormSelect';
 import { RecordFormProps, CategoryInterface } from "types";
 
 import { GET_CATEGORIES, GET_RECORDS } from "gql-requests/queries";
@@ -11,7 +11,7 @@ import { useQuery, useMutation } from "@apollo/client";
 
 const RecordForm = (props: RecordFormProps) => {
     const { data } = useQuery(GET_CATEGORIES);
-console.log(data)
+
     const [addRecord] = useMutation(ADD_RECORD, {
         refetchQueries: [
             {query: GET_RECORDS},
@@ -25,8 +25,8 @@ console.log(data)
             'records'
           ],
     });
-
     const requestCallback = props.requestType === "update" ? updateRecord : addRecord;
+    const selectDefaultValue = props.requestType === "update" ? props.record?.categoryID : "";
     const id = props.requestType === "update" ? props.record?.id : null;
     const defaultDate = props.record?.createdAt && new Date(+props.record?.createdAt).toLocaleDateString().split('.').reverse().join('-');
     return(
@@ -39,17 +39,10 @@ console.log(data)
                     <Flex width="100%" direction="column" justify="space-between" align="center">
                         <Input marginBottom="1rem" type="date" name="createdAt" placeholder="Date" required defaultValue={defaultDate}/>
                         <Input marginBottom="1rem" type="number" name="money" placeholder="How much?" required defaultValue={props.record?.money}/>
-                        <SelectWrapper>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
-                            </svg>
-                            <Select name="categoryID" placeholder="Category">
-                                <option>No category</option>
-                                {data?.categories.length && data.categories.map((category: CategoryInterface) => (
-                                    <option key={category.id} value={category.id} selected={props.record?.categoryID === category.id}>{category.name}</option>
-                                ))}
-                            </Select>
-                        </SelectWrapper>
+                        <FormSelect 
+                            categories={data?.categories}
+                            defaultValue={selectDefaultValue}
+                        />
                         <Input marginBottom="1rem" type="text" name="description" placeholder="Description" defaultValue={props.record?.description}/>
                         <Input type="submit" value="Submit" />
                     </Flex>

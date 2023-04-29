@@ -13,7 +13,10 @@ const MasterPage = () => {
     const [content, setContent] = useState(<></>);
 
     const openModal = () => setOpen('open');
-    const closeModal = () => setOpen('closed');
+    const closeModal = () => {
+        setOpen('closed');
+        setContent(<></>);
+    }
 
     const useModal = (content: JSX.Element) => {
         setContent(content);
