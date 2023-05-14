@@ -4,23 +4,23 @@ import { Flex } from "styled/Layout.styled";
 import { PageHeading } from "styled/Text.styled";
 import { RoundButton } from "styled/RoundButton.styled";
 import ImageWrapper from "styled/ImageWrapper.styled";
-import RecordCard from "components/RecordCard";
 import RecordForm from "components/RecordForm";
 
 import { Modal, RecordsInterface } from "types";
 import { GET_RECORDS } from "gql-requests/queries";
 import { useQuery } from "@apollo/client";
 
-const Records = () => {
+const Main = () => {
     const { loading, error, data } = useQuery(GET_RECORDS);
     const { useModal, closeModal }: Modal = useOutletContext();
     if (loading) return <p>Loading...</p>;
     if(error) return <p>Error</p>;
+    if(data) console.log(data);
 
-    return(
+    return (
         <>
             <Flex justify="space-between">
-            <PageHeading>Records History</PageHeading>
+            <PageHeading>Main</PageHeading>
             <RoundButton onClick={() => useModal(<RecordForm closeModal={closeModal} requestType={"create"} />)}>
                     <ImageWrapper size="1rem">
                         <svg>
@@ -29,24 +29,8 @@ const Records = () => {
                     </ImageWrapper>
                 </RoundButton>
             </Flex>
-           {!data ? (
-            <h1>No Records</h1>
-           ) : (
-            data.records.map((record: RecordsInterface) => (
-                <RecordCard 
-                    key={record.id}
-                    id={record.id}
-                    money={record.money}
-                    categoryID={record.categoryID}
-                    categoryName={record.categoryName}
-                    description={record.description}
-                    createdAt={record.createdAt}
-                />
-            ))
-           )}
-            
         </>
     );
 }
 
-export default Records;
+export default Main;
