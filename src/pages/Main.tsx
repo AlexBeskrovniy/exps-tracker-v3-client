@@ -5,6 +5,7 @@ import { PageHeading } from "styled/Text.styled";
 import { RoundButton } from "styled/RoundButton.styled";
 import ImageWrapper from "styled/ImageWrapper.styled";
 import RecordForm from "components/RecordForm";
+import ThisMonthChart from 'charts/ThisMonthChart';
 
 import { Modal, RecordsInterface } from "types";
 import { GET_RECORDS } from "gql-requests/queries";
@@ -29,6 +30,7 @@ const Main = () => {
                     </ImageWrapper>
                 </RoundButton>
             </Flex>
+            <ThisMonthChart records={data.records} />
         </>
     );
 }

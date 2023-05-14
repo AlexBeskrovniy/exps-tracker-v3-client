@@ -22,6 +22,7 @@
       "providers/*": ["src/providers/*"],
       "components/*": ["src/components/*"],
       "styled/*": ["src/components/styled/*"],
+      "charts/*": ["src/components/charts/*"],
       "gql-requests/*": ["src/gql-requests/*"],
       "types": ["src/types.ts"]
     }
