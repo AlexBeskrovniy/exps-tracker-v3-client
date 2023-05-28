@@ -23,47 +23,54 @@ import {
     Legend
   );
 
-const ThisMonthChart = (props) => {
-    console.log(props.records);
-	const thisMonthRecords = props.records.filter((record: RecordsInterface) => {
-        console.log(Number(record.createdAt));
-        console.log(moment().startOf('month'));
-        Number(record.createdAt) > new Date(moment().startOf('month'))
+type ThisMonthChartProps = {
+  records: RecordsInterface[]
+}
+
+type ChartData = {
+  [index: string]: number
+}
+
+const ThisMonthChart = ({ records }: ThisMonthChartProps) => {
+	const thisMonthRecords = records.filter((record: RecordsInterface) => {
+       return Number(record.createdAt) > moment().utc().startOf('month').valueOf();
     });
-console.log(thisMonthRecords);
-  const daysCount = moment(moment().format('YYYY-MM')).daysInMonth();
+
+const daysCount = moment(moment().format('YYYY-MM')).daysInMonth();
 
 const getDates = () => {
-  const data = {};
+  const data: ChartData = {};
   let counter = 1;
   do {
-    data[moment().date(counter).format('MMM Do YY')] = 0;
+    const dateLabel = moment().date(counter).format('MMM Do YY');
+    data[dateLabel] = 0;
     counter++;
   } while (counter <= daysCount);
   return data;
 }
 const dates = getDates();
 
-  const chartInfoHandler = (data) => {
-    const result = data.reduce((accum, curent) => {
-        const date = moment(curent.createdAt).format('MMM Do YY');
-        if(!accum[date]) {
-          accum[date] = curent.money;
-        } else {
-          accum[date] += curent.money;
-        }
-        return accum;
-      }, dates);
-    
-      const labels = [];
-      const spents = [];
-      Object.entries(result).map(([ date, money ]) => {
-        labels.push(date);
-        spents.push(money);
-      });
+const chartInfoHandler = (data: RecordsInterface[]) => {
+  const result = data.reduce((accum, curent) => {
+      const date = moment(+curent.createdAt).format('MMM Do YY');
+      if(!accum[date]) {
+        accum[date] = curent.money;
+      } else {
+        accum[date] += curent.money;
+      }
+      return accum;
+  }, dates);
+  
+    const labels: string[] = [];
+    const spents: number[] = [];
+    Object.entries(result).map(([ date, money ]) => {
+      labels.push(date);
+      spents.push(money);
+    }
+  );
 
-      return { labels: labels, spents: spents };
-  }
+  return { labels: labels, spents: spents };
+}
 
   const finalInfo = chartInfoHandler(thisMonthRecords);
     

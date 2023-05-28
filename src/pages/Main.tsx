@@ -16,7 +16,7 @@ const Main = () => {
     const { useModal, closeModal }: Modal = useOutletContext();
     if (loading) return <p>Loading...</p>;
     if(error) return <p>Error</p>;
-    if(data) console.log(data);
+    if(data) console.log(data.records);
 
     return (
         <>
