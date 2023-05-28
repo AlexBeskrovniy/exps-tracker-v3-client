@@ -32,9 +32,9 @@ type ChartData = {
 }
 
 const ThisMonthChart = ({ records }: ThisMonthChartProps) => {
-	const thisMonthRecords = records.filter((record: RecordsInterface) => {
-       return Number(record.createdAt) > moment().utc().startOf('month').valueOf();
-    });
+	const thisMonthRecords = records.filter(record =>
+      Number(record.createdAt) >= moment().utc().startOf('month').valueOf()
+    );
 
 const daysCount = moment(moment().format('YYYY-MM')).daysInMonth();
 
@@ -54,9 +54,9 @@ const chartInfoHandler = (data: RecordsInterface[]) => {
   const result = data.reduce((accum, curent) => {
       const date = moment(+curent.createdAt).format('MMM Do YY');
       if(!accum[date]) {
-        accum[date] = curent.money;
+        accum[date] = +curent.money;
       } else {
-        accum[date] += curent.money;
+        accum[date] += +curent.money;
       }
       return accum;
   }, dates);
