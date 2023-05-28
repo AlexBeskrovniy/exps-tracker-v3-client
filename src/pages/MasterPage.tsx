@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Outlet } from "react-router-dom";
 
 import { Container } from "styled/Layout.styled";
+import { PageWrapper, PageBody } from 'styled/PageDetails.styled';
 import Header from "components/Header";
 import Footer from "components/Footer";
 import Modal from "components/Modal";
@@ -24,14 +25,16 @@ const MasterPage = () => {
     }
 
     return(
-        <>
+        <PageWrapper>
             <Header />
+            <PageBody>
                 <Container>
                     <Outlet context={{ useModal, closeModal }} />
                 </Container>
-                <Modal open={ open } closeModal={ closeModal } children={ content } />
+            </PageBody>
             <Footer />
-        </>
+            <Modal open={ open } closeModal={ closeModal } children={ content } />
+        </PageWrapper>
     );
 };
 

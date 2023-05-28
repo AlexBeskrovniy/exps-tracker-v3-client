@@ -10,7 +10,7 @@ import ThisYearChart from 'charts/ThisYearChart';
 import ThisMonthCategoriesChart from 'charts/ThisMonthCategoriesChart';
 import ThisYearCategoriesChart from 'charts/ThisYearCategoriesChart';
 
-import { Modal, RecordsInterface } from "types";
+import { Modal } from "types";
 import { GET_RECORDS } from "gql-requests/queries";
 import { useQuery } from "@apollo/client";
 
@@ -24,8 +24,8 @@ const Main = () => {
     return (
         <>
             <Flex justify="space-between">
-            <PageHeading>Main</PageHeading>
-            <RoundButton onClick={() => useModal(<RecordForm closeModal={closeModal} requestType={"create"} />)}>
+                <PageHeading>Main</PageHeading>
+                <RoundButton onClick={() => useModal(<RecordForm closeModal={closeModal} requestType={"create"} />)}>
                     <ImageWrapper size="1rem">
                         <svg>
                             <use href="#plus"></use>
