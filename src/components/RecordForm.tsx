@@ -28,7 +28,11 @@ const RecordForm = (props: RecordFormProps) => {
     const requestCallback = props.requestType === "update" ? updateRecord : addRecord;
     const selectDefaultValue = props.requestType === "update" ? props.record?.categoryID : "";
     const id = props.requestType === "update" ? props.record?.id : null;
-    const defaultDate = props.record?.createdAt && new Date(+props.record?.createdAt).toLocaleDateString().split('.').reverse().join('-');
+    //TODO: use dayjs overall
+    const defaultDate = props.record?.createdAt 
+        ? new Date(+props.record?.createdAt).toLocaleDateString().split('.').reverse().join('-')
+        : new Date(Date.now()).toLocaleDateString().split('.').reverse().join('-');
+        
     return(
         <Container>
             <Flex height="100%" direction="column" justify="center" align="center">
@@ -37,7 +41,7 @@ const RecordForm = (props: RecordFormProps) => {
                         props.closeModal();
                     }}>
                     <Flex width="100%" direction="column" justify="space-between" align="center">
-                        <Input marginBottom="1rem" type="date" name="createdAt" placeholder="Date" required defaultValue={defaultDate}/>
+                        <Input marginBottom="1rem" type="date" name="createdAt" placeholder="Date" defaultValue={defaultDate}/>
                         <Input marginBottom="1rem" type="number" name="money" placeholder="How much?" required defaultValue={props.record?.money}/>
                         <FormSelect 
                             categories={data?.categories}
